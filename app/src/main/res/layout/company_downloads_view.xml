@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
+    android:layout_margin="15dp"
+    >
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/download_colors"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:weightSum="10"-->
+        <!--&gt;-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/company_download_image"-->
+            <!--android:paddingTop="20dp"-->
+            <!--android:paddingBottom="20dp"-->
+            <!--android:layout_weight="2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:src="@drawable/pdf_white_icn"-->
+            <!--android:tag="white"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<View-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/tab_background_selected"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_weight="8"-->
+            <!--android:textColor="@color/download_list"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/company_download_item"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="40dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:text="Company Profile" />-->
+
+
+    <!--</LinearLayout>-->
+
+
+    <ListView
+        android:choiceMode="singleChoice"
+        android:id="@+id/company_downloads_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:divider="@color/tab_background_selected"
+
+        >
+    </ListView>
+
+</LinearLayout>

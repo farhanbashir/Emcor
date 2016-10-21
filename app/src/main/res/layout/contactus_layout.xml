@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    style="@style/background"
+    android:orientation="vertical"
+    >
+
+
+
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/company_common_new"></include>
+
+        <View
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            style="@style/textGreen"
+            android:text="@string/phone"/>
+
+        <TextView
+            android:id="@+id/contactpage_phone_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/homeText"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            style="@style/textGreen"
+            android:text="@string/fax"/>
+
+        <TextView
+            android:id="@+id/contactpage_fax_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/homeText"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            style="@style/textGreen"
+            android:text="@string/toll"/>
+
+        <TextView
+            android:id="@+id/contactpage_tollfree_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/homeText"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            style="@style/textGreen"
+            android:text="@string/corporate_website"/>
+
+        <TextView
+            android:id="@+id/contactpage_website_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/homeText"
+            />
+
+
+        <View
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/heading"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/contactus_form_heading"/>
+
+        <EditText
+            android:background="#ffffff"
+            android:layout_marginTop="10dp"
+            style="@style/homeText"
+            android:padding="5dp"
+            android:id="@+id/textViewFirstName"
+            android:hint="@string/first_name"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:background="#ffffff"
+            style="@style/homeText"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewLastName"
+            android:hint="@string/last_name"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:background="#ffffff"
+            style="@style/homeText"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewEmail"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:background="#ffffff"
+            style="@style/homeText"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewContact"
+            android:hint="@string/telephone"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:inputType="phone"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:background="#ffffff"
+            style="@style/homeText"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewComments"
+            android:hint="@string/comments"
+            android:layout_width="match_parent"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:maxLines="8"
+            android:gravity="top|left"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            style="@style/homeButton"
+            android:id="@+id/buttonContactUs"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:layout_gravity="right"/>
+
+    </LinearLayout>
+
+</ScrollView>

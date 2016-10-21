@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/aboutus_layout"
+    android:orientation="vertical" android:weightSum="100" >
+
+            <FrameLayout
+                android:layout_weight="90"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <include android:id="@+id/about_view" layout="@layout/about_layout" android:visibility="visible"/>
+                <include android:id="@+id/team_view" layout="@layout/management_team_layout" android:visibility="invisible"/>
+                <include android:id="@+id/industry_view" layout="@layout/industry_recognition_layout" android:visibility="invisible"/>
+                <include android:id="@+id/corporate_view" layout="@layout/corporate_offices_layout" android:visibility="invisible"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_weight="10"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/tab_about"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/tab_background_selected"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/building_icon"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/building_icon_white"/>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blue_arrow"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tab_team"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/tab_background_unselected"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/managment_icon"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/users_icontransparent"/>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blue_arrow"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tab_industry"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/tab_background_unselected"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/recognition_icon"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/trophy_icon_transparent"/>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blue_arrow"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tab_corporate"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/tab_background_unselected"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/map_icon"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/marker_icon_transparent"/>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blue_arrow"/>
+                </LinearLayout>
+
+                <!--<android.support.design.widget.TabLayout-->
+                    <!--android:id="@+id/tabs"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--app:tabMode="fixed"-->
+                    <!--app:tabIndicatorColor="@android:color/transparent"-->
+                    <!--app:tabBackground="@drawable/tab_colors"-->
+                    <!--app:tabGravity="fill" />-->
+
+            </LinearLayout>
+
+</LinearLayout>

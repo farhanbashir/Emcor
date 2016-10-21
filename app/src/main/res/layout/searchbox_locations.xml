@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:weightSum="6">
+
+    <EditText
+        android:background="#ffffff"
+
+        android:id="@+id/locations_searchbox_edittext"
+        style="@style/homeText"
+        android:padding="10dp"
+        android:layout_weight="5"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" />
+    <ImageButton
+        android:id="@+id/locations_cancel_search"
+        android:background="#8E8882"
+        android:layout_weight="1"
+        android:src="@drawable/close_icon_white"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" />
+</LinearLayout>

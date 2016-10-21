@@ -1,0 +1,191 @@
+package com.example.fbashir.emcor.helpers;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
+import android.view.View;
+import android.view.animation.AnimationUtils;
+
+import com.example.fbashir.emcor.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+
+import okhttp3.ResponseBody;
+
+import static android.content.ContentValues.TAG;
+
+/**
+ * Created by fbashir on 9/29/2016.
+ */
+
+public class MyUtils {
+    public void SlideUP(View view, Context context)
+    {
+        view.startAnimation(AnimationUtils.loadAnimation(context,
+                R.anim.slide_down));
+    }
+
+    public void SlideDown(View view,Context context)
+    {
+        view.startAnimation(AnimationUtils.loadAnimation(context,
+                R.anim.slide_up));
+    }
+
+    public static ArrayList<String> removeValue(ArrayList<String> values, String removeValue)
+    {
+        for(int i=0; i<values.size();i++)
+        {
+            if(values.get(i).equals(removeValue))
+            {
+                values.remove(i);
+                break;
+            }
+        }
+        return values;
+    }
+
+    public static boolean valueExists(ArrayList<String> values, String compareValue)
+    {
+        for(int i=0; i<values.size();i++)
+        {
+            if(values.get(i).equals(compareValue))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static void showAlert(Context context, String msg)
+    {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+
+        // set title
+        alertDialogBuilder.setTitle(R.string.alert);
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage(msg)
+                .setCancelable(false)
+                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // if this button is clicked, close
+                        // current activity
+                        dialog.cancel();
+                    }
+                });
+//                .setNegativeButton("No",new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog,int id) {
+//                        // if this button is clicked, just close
+//                        // the dialog box and do nothing
+//                        dialog.cancel();
+//                    }
+//                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
+    public static void openMailer(Context context, String msg)
+    {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "");
+
+        if(!msg.equals(""))
+        {
+            intent.putExtra(Intent.EXTRA_TEXT, msg);
+        }
+        //intent.putExtra(Intent.EXTRA_STREAM,pdf_uri);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent mailer = Intent.createChooser(intent, null);
+        context.startActivity(mailer);
+    }
+
+    public static void openMap(Context context, String lat, String lng, String label)
+    {
+        String uri = "geo:0,0?q="+lat+","+lng+"("+label+")";
+        //Uri gmmIntentUri = Uri.parse("geo:"+lat+","+lng+"(Google+Sydney)");
+        //Uri gmmIntentUri = Uri.parse("geo:0,0?q=-33.8666,151.1957(Google+Sydney)");
+        Uri gmmIntentUri = Uri.parse(uri);
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(mapIntent);
+        }
+    }
+
+    public static void openViewer(Context context, String url)
+    {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        context.startActivity(browserIntent);
+    }
+
+    public static Uri writeResponseBodyToDisk(ResponseBody body, String name, Uri pdf_uri) {
+        try {
+            // todo change the file location/name according to your needs
+            String[] file_name = name.split("/");
+
+            File path = Environment.getExternalStorageDirectory();
+            File futureStudioIconFile = new File(path, file_name[file_name.length -1]);
+
+            InputStream inputStream = null;
+            OutputStream outputStream = null;
+
+            try {
+                byte[] fileReader = new byte[4096];
+
+                long fileSize = body.contentLength();
+                long fileSizeDownloaded = 0;
+
+                inputStream = body.byteStream();
+                outputStream = new FileOutputStream(futureStudioIconFile);
+
+                while (true) {
+                    int read = inputStream.read(fileReader);
+
+                    if (read == -1) {
+                        break;
+                    }
+
+                    outputStream.write(fileReader, 0, read);
+
+                    fileSizeDownloaded += read;
+
+                    Log.d(TAG, "file download: " + fileSizeDownloaded + " of " + fileSize);
+                }
+
+                outputStream.flush();
+                pdf_uri = Uri.fromFile(futureStudioIconFile);
+                return pdf_uri;
+            } catch (IOException e) {
+                return pdf_uri;
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            }
+        } catch (IOException e) {
+            return pdf_uri;
+        }
+    }
+
+}

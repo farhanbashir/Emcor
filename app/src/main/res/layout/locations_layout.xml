@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animateLayoutChanges="true"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:layout_margin="15dp">
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/locations_main_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        android:background="#393939">
+
+        <Button
+            android:drawableLeft="@drawable/search_icn"
+            android:id="@+id/locations_search_button"
+            android:background="@drawable/button_border"
+            android:textColor="#8E8882"
+            android:layout_weight="4"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="@string/search_locations"/>
+
+        <ImageButton
+            android:id="@+id/locations_filter_button"
+            android:background="@drawable/button_border"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/filter_icon_gray"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/filter_white_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:background="#393939">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginLeft="80dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+    <!--<include layout="@layout/searchbox_locations" android:visibility="gone" android:id="@+id/locations_searchbox"></include>-->
+
+    <LinearLayout
+        android:visibility="gone" android:id="@+id/maps_searchbox"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:background="#ffffff"
+            android:id="@+id/maps_searchbox_edittext"
+            style="@style/homeText"
+            android:padding="15dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:hint="@string/location_search_hint"
+            android:inputType="textMultiLine"/>
+        <ImageButton
+            android:id="@+id/locations_cancel_search"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="#8E8882"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@drawable/close_icon_white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/locations_cancel_search"-->
+            <!--android:background="#8E8882"-->
+            <!--android:layout_weight="1"-->
+            <!--android:src="@drawable/recognition_icn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="fill_parent" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/companies_filter_options"
+        android:visibility="gone"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
+            android:text="@string/filter"/>
+
+        <ListView
+            android:choiceMode="multipleChoice"
+            android:id="@+id/company_filter_list"
+            android:layout_width="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="@color/white"
+            android:layout_height="wrap_content"></ListView>
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/locations_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:tabPaddingEnd="0dp"
+            app:tabPaddingStart="0dp"
+
+            app:tabTextColor="@color/locations_tab_background_selected"
+            app:tabSelectedTextColor="@color/locations_tab_background_unselected"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabBackground="@drawable/locations_tab_colors"
+            app:tabGravity="fill"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:background="#cccccc"
+        android:padding="10dp"
+        android:text="@string/top_locations"
+        />
+    <ListView
+        android:visibility="visible"
+        android:id="@+id/locations_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/maps_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="vertical">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/location_map"
+            tools:context=".MainActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+
+    </LinearLayout>
+    <!--<ListView-->
+        <!--android:visibility="gone"-->
+        <!--android:id="@+id/maps_list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" >-->
+    <!--</ListView>-->
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Emcor Group</string>
+    <string name="company_name">EMCOR Group, Inc.</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_companies">Companies</string>
+    <string name="menu_locations">Locations</string>
+    <string name="menu_services">Services</string>
+    <string name="menu_contact_us">Contact Us</string>
+    <string name="menu_about_us">About Us</string>
+    <string name="menu_about">About</string>
+    <string name="read_more">Read more</string>
+    <string name="submit">Submit</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="telephone">Telephone</string>
+    <string name="download">Download</string>
+    <string name="preview">Preview</string>
+    <string name="contact">Contact</string>
+    <string name="comments">Comments</string>
+    <string name="dummy_text_short">As a Fortune 500® company with annual revenues of more than $7.2 billion, EMCOR\r\nGroup is a leader in mechanical and electrical construction, industrial and energy\r\ninfrastructure, and building services.\r\n\r\nEMCOR has a rare combination of broad reach and local execution, combining the\r\nstrength of an industry leader with the knowledge and care of 75+ companies across 170+ locations. Build. Power. Service. Protect. That’s the EMCOR AdvantageTM that helps clients increase productivity and optimize their organizations.</string>
+    <string name="dummy_text_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et nisl massa. Nunc blandit ante eu ullamcorper ultricies. In lobortis ex a lectus dignissim, a maximus eros ultricies. Suspendisse in nibh tempor, ultricies magna facilisis, convallis libero. Suspendisse consequat dolor non lectus consequat, in scelerisque arcu tincidunt. Sed non arcu ultrices, cursus lacus eget, auctor risus. Etiam vestibulum a tellus at eleifend. Mauris pretium consectetur mauris vitae hendrerit.
+
+Interdum et malesuada fames ac ante ipsum primis in faucibus. In ac porta nibh, non feugiat lacus. Nunc efficitur leo quis odio molestie pharetra. Quisque nunc sem, eleifend eu tempor id, aliquet in odio. Etiam eu ornare turpis. Sed congue, tortor et lobortis molestie, nisi ante sagittis nisi, eu volutpat tortor ex at sem. Suspendisse sit amet facilisis sapien. Maecenas sed dolor sit amet justo iaculis tempor. Etiam eu neque iaculis, varius felis at, accumsan nunc. Aliquam vel sapien augue. Duis lectus ipsum, vehicula et laoreet ut, tempor a purus.
+
+Vestibulum ut metus vel lorem scelerisque bibendum at id ante. Pellentesque ac ante sagittis, feugiat sem eget, venenatis nibh. Suspendisse nec vehicula purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis aliquam sapien. Aliquam at euismod erat, suscipit hendrerit elit. Donec ornare tincidunt mauris, finibus ullamcorper risus cursus pellentesque. Ut ac sem orci. Etiam ut leo id elit vehicula pretium. Nam bibendum, sem nec rutrum bibendum, nisi nisi viverra leo, posuere aliquet felis elit sit amet orci. Phasellus dapibus purus eu lacus eleifend, sed ultricies odio dictum. Aliquam auctor tristique sem vitae tristique.
+
+Nunc neque dui, egestas at risus ultrices, suscipit tempus sapien. Fusce rutrum lacinia molestie. Suspendisse turpis eros, auctor sed metus non, iaculis mattis nisl. Praesent eget tempor nibh. Donec eget tellus at est accumsan consequat ac nec dolor. Morbi non cursus ante, at interdum ex. Aenean dui sapien, finibus non varius ut, sollicitudin sit amet lorem. Donec mollis, ante vitae ornare efficitur, nunc neque blandit est, in gravida velit nunc nec purus. In semper, lectus eget porttitor aliquam, magna leo consequat est, a ultrices nulla ex sit amet risus. Maecenas posuere justo vitae ligula ultricies pellentesque. Curabitur imperdiet ipsum odio, id rutrum nisl laoreet sed.</string>
+
+
+
+    <string name="google_map_api_key">AIzaSyCCls3p4BMe6QRLf3oOl5wufTMVdvjQ_xk</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="services_heading">EMCOR companies by headquater</string>
+    <!--<string name="server_base_url">http://6hwy-tr5z.accessdomain.com/api/</string>-->
+    <string name="server_base_url">http://technyxsystems.com/demo/emcor_profile_book/api/</string>
+    <string name="loading_text">Loading...</string>
+    <string name="divisions_text">Divisions</string>
+    <string name="business_stats_text">Business Stats</string>
+    <string name="emcor_facts_text">Emcor Facts</string>
+    <string name="safety_stats_text">Safety Stats</string>
+    <string name="industry_recognition_text">Industry Recognition</string>
+    <string name="management_team_text">Management Team</string>
+    <string name="team_text">Team</string>
+    <string name="markets_text">Markets</string>
+    <string name="advantages_text">Advantages</string>
+    <string name="downloads_text">Downloads</string>
+    <string name="corporate_offices_text">Corporate Offices</string>
+    <string name="contactus_form_heading">Send us a message</string>
+    <string name="test_pdf">http://6hwy-tr5z.accessdomain.com/emcor-pdf/14/company-Sep-20-2016-094505.pdf</string>
+    <string name="first_name_error">Please enter first name</string>
+    <string name="last_name_error">Please enter last name</string>
+    <string name="email_error">Email is not valid</string>
+    <string name="phone_error">Invalid phone number</string>
+    <string name="comments_error">Please enter comments</string>
+    <string name="location_search_hint">Enter Location...</string>
+    <string name="filter">Filter</string>
+    <string name="search">Search</string>
+    <string name="phone">phone</string>
+    <string name="fax">fax</string>
+    <string name="toll">toll free</string>
+    <string name="corporate_website">corporate website</string>
+    <string name="search_locations">Search Locations</string>
+    <string name="top_locations">Top Location Matches</string>
+    <string name="by_location">By Location</string>
+    <string name="additional_division">Additional Division</string>
+    <string name="company_profile">Company Profile</string>
+    <string name="profile_not_found">Company profile not available</string>
+    <string name="lat_tag">lat</string>
+    <string name="lng_tag">lng</string>
+    <string name="address_tag">address</string>
+    <string name="alert">Alert</string>
+    <string name="some_error">Some error</string>
+    <string name="no_company_selected">No company selected</string>
+</resources>

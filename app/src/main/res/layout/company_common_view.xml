@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+    <TextView
+        style="@style/heading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/company_image"
+        android:id="@+id/company_name_textview"
+        />
+    <TextView
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/company_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_name_textview"
+        android:id="@+id/company_address_textview"/>
+
+    <ImageButton
+        android:background="@color/imageBackground"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/contact_map_marker_white"
+        android:layout_alignTop="@+id/company_name_textview"
+        android:layout_alignBottom="@+id/company_address_textview"
+        android:id="@+id/company_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+    <!--<ImageView-->
+        <!--android:clickable="true"-->
+        <!--android:layout_width="64dp"-->
+        <!--android:layout_height="64dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:id="@+id/company_image"-->
+        <!--android:src="@drawable/map_marker_128"-->
+        <!--android:layout_alignBottom="@+id/company_address_textview"-->
+        <!--android:layout_alignTop="@+id/company_name_textview"/>-->
+
+</RelativeLayout>

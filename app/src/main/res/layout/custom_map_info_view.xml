@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:background="@color/black"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/map_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:paddingBottom="20dp"
+            android:textColor="@color/locations_tab_background_unselected"
+            android:id="@+id/map_company_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"/>
+        <TextView
+            android:textColor="@color/locations_tab_background_unselected"
+            android:id="@+id/map_company_telephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"/>
+        <TextView
+            android:textColor="@color/locations_tab_background_unselected"
+            android:id="@+id/map_company_fax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"/>
+        <TextView
+            android:textColor="@color/locations_tab_background_unselected"
+            android:id="@+id/map_company_toll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:padding="10dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/right_arrow_transparent"
+        android:background="@color/locations_tab_background_unselected"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

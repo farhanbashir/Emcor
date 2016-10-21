@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    >
+
+    <EditText
+        android:background="#ffffff"
+        android:id="@+id/companies_searchbox_edittext"
+        style="@style/homeText"
+        android:padding="15dp"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" />
+    <ImageButton
+        android:id="@+id/companies_cancel_search"
+        android:background="#8E8882"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:src="@drawable/close_icon_white"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" />
+</LinearLayout>

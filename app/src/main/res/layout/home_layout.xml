@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:weightSum="100" android:layout_margin="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp" android:layout_weight="50" android:layout_gravity="center_horizontal" android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:weightSum="100">-->
+            <!--<ImageView-->
+                <!--android:background="#F6F6F6"-->
+                <!--android:id="@+id/home_image"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_weight="50"-->
+                <!--android:layout_height="0dp"-->
+
+                <!--/>-->
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/home_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            />
+        <RelativeLayout
+            android:layout_weight="50"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:ellipsize="marquee"
+                style="@style/homeText"
+                android:padding="10dp"
+                android:maxLength="203"
+                android:background="@color/locations_tab_background_selected"
+                android:id="@+id/home_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/dummy_text_short"
+                />
+            <TextView
+                style="@style/textGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/read_more"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:textAllCaps="true"
+                android:onClick="gotoAboutUs"
+                android:layout_alignEnd="@+id/home_text"
+                android:layout_alignRight="@+id/home_text"
+                android:layout_alignBottom="@+id/home_text"/>
+        </RelativeLayout>
+            <!--<TextView-->
+                <!--style="@style/homeText"-->
+                <!--android:padding="5dp"-->
+                <!--android:background="#F6F6F6"-->
+                <!--android:id="@+id/home_text"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="40"-->
+
+                <!--/>-->
+            <!--<TextView-->
+                <!--style="@style/textGreen"-->
+                <!--android:background="#F6F6F6"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:clickable="true"-->
+                <!--android:paddingRight="5dp"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:onClick="gotoAboutUs"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:text="@string/read_more"-->
+                <!--android:gravity="right" />-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="50"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp">
+            <Button
+                android:paddingTop="10dp"
+                android:drawableTop="@drawable/division_icon"
+                android:id="@+id/home_division_button"
+                style="@style/homeButton"
+                android:background="@drawable/home_button_background"
+                android:textAllCaps="true"
+                android:layout_marginRight="15dp"
+                android:layout_width="0dp"
+                android:onClick="gotoDivisions"
+                android:layout_height="match_parent"
+                android:text="@string/divisions_text"
+                android:layout_weight="50"/>
+            <Button
+                android:paddingTop="10dp"
+                android:drawableTop="@drawable/companies_icon"
+                style="@style/homeButton"
+                android:textAllCaps="true"
+                android:layout_width="0dp"
+                android:onClick="gotoCompanies"
+                android:layout_height="match_parent" android:text="@string/menu_companies"
+                android:background="@drawable/home_button_background"
+                android:layout_weight="50"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            >
+            <Button
+                android:paddingTop="10dp"
+                android:drawableTop="@drawable/bussiness_stats_icon"
+                android:layout_marginRight="15dp"
+                android:textAllCaps="true"
+                style="@style/homeButton"
+                android:layout_width="0dp"
+                android:onClick="gotoBusinessStats"
+                android:background="@drawable/home_button_background"
+                android:layout_height="match_parent" android:text="@string/emcor_facts_text"
+                android:layout_weight="50"/>
+            <Button
+                android:paddingTop="10dp"
+                android:drawableTop="@drawable/safety_stats"
+                style="@style/homeButton"
+                android:textAllCaps="true"
+                android:layout_width="0dp"
+                android:onClick="gotoSafetyStats"
+                android:background="@drawable/home_button_background"
+                android:layout_height="match_parent" android:text="@string/safety_stats_text"
+                android:layout_weight="50"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:paddingTop="10dp"
+                android:drawableTop="@drawable/industry_icon"
+                android:layout_marginRight="15dp"
+                android:textAllCaps="true"
+                style="@style/homeButton"
+                android:background="@drawable/home_button_background"
+                android:layout_width="0dp"
+                android:onClick="gotoIndustryRecognition"
+                android:layout_height="match_parent" android:text="@string/industry_recognition_text"
+                android:layout_weight="50"/>
+            <Button
+                android:paddingTop="10dp"
+                android:drawableTop="@drawable/contact_icon"
+                style="@style/homeButton"
+                android:background="@drawable/home_button_background"
+                android:textAllCaps="true"
+                android:layout_width="0dp"
+                android:onClick="gotoContactUs"
+                android:layout_height="match_parent" android:text="@string/contact"
+                android:layout_weight="50"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

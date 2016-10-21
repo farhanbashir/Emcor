@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tab_background_selected">#26211d</color>
+    <color name="tab_background_unselected">#1a7d7f</color>
+    <color name="locations_tab_background_selected">#F6F6F6</color>
+    <color name="locations_tab_background_unselected">#8E8882</color>
+    <color name="list_background">#F6F6F6</color>
+    <color name="black">#000000</color>
+    <color name="text_color">#636363</color>
+    <color name="white">#ffffff</color>
+    <color name="imageBackground">#ea6559</color>
+</resources>

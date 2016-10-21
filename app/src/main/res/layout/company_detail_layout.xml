@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/company_detail_layout"
+    android:orientation="vertical" android:weightSum="100" >
+
+    <ImageView
+        android:layout_weight="10"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#393939"
+        android:src="@drawable/emcor_logo"/>
+
+    <FrameLayout
+        android:layout_weight="80"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        >
+
+        <include android:id="@+id/company_about_view" layout="@layout/company_about_view" android:visibility="visible"/>
+        <include android:id="@+id/company_team_view" layout="@layout/company_team_view" android:visibility="invisible"/>
+        <include android:id="@+id/company_services_view" layout="@layout/company_services_view" android:visibility="invisible"/>
+        <include android:id="@+id/company_markets_view" layout="@layout/company_markets_view" android:visibility="invisible"/>
+        <include android:id="@+id/company_advantages_view" layout="@layout/company_advantages_view" android:visibility="invisible"/>
+        <include android:id="@+id/company_downloads_view" layout="@layout/company_downloads_listview_new_layout" android:visibility="invisible"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/tab_about"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/tab_background_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/building_icon"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/building_icon_white"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_team"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/tab_background_unselected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/managment_icon"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/users_icontransparent"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_services"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/tab_background_unselected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/setting_icon"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wrench_icon_transparent"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_markets"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/tab_background_unselected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/pie_icon"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pie_icon_transparent"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_advantages"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/tab_background_unselected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/diamond_icon"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/diamond_icon_transparent"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_downloads"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/tab_background_unselected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/pdf_icon"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pdf_icon_transparent"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/blue_arrow"/>
+        </LinearLayout>
+        <!--<android.support.design.widget.TabLayout-->
+            <!--android:id="@+id/company_tabs"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--app:tabMode="fixed"-->
+
+            <!--app:tabIndicatorColor="@android:color/transparent"-->
+            <!--app:tabBackground="@drawable/tab_colors"-->
+            <!--app:tabGravity="fill" />-->
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

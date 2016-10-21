@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    style="@style/background"
+    android:layout_margin="15dp"
+    android:layout_height="match_parent">
+
+        <WebView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/webview"></WebView>
+
+        <LinearLayout
+            android:dividerPadding="5dp"
+            android:divider="@drawable/white_linear_divider"
+            android:showDividers="middle"
+            android:id="@+id/download_item_options"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/download_preview_button"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:background="@drawable/download_options_colors"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:paddingTop="20dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/company_stats_search"/>
+                    <TextView
+                        android:textColor="@color/white"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="20dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:text="@string/preview"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/download_download_button"-->
+                    <!--android:clickable="true"-->
+                    <!--android:focusable="true"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:background="@drawable/download_options_colors"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_height="match_parent">-->
+                        <!--<ImageView-->
+                            <!--android:paddingBottom="10dp"-->
+                            <!--android:paddingTop="20dp"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:src="@drawable/download_icon_grey"/>-->
+                        <!--<TextView-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:paddingTop="10dp"-->
+                            <!--android:paddingBottom="20dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:text="@string/download"-->
+                            <!--android:layout_height="wrap_content" />-->
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/download_email_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:background="@drawable/download_options_colors"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                        <ImageView
+                            android:paddingBottom="10dp"
+                            android:paddingTop="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/company_stats_email"/>
+                        <TextView
+                            android:textColor="@color/white"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="20dp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:text="@string/email"
+                            android:layout_height="wrap_content" />
+                </LinearLayout>
+        </LinearLayout>
+
+</LinearLayout>

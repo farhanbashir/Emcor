@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:animateLayoutChanges="true"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
+    android:layout_margin="15dp">
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/companies_main_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+
+        android:background="#393939">
+
+        <Button
+            android:drawableLeft="@drawable/search_icn"
+            android:id="@+id/companies_search_button"
+            android:background="@drawable/button_border"
+            android:textColor="#8E8882"
+            android:layout_weight="2"
+            android:paddingLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"/>
+
+        <Button
+            android:id="@+id/companies_location_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#8E8882"
+            android:layout_weight="2"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_location"/>
+
+        <ImageButton
+            android:id="@+id/companies_filter_button"
+            android:background="@drawable/button_border"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/filter_icon_gray"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/filter_white_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:background="#393939">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginLeft="128dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+    <include layout="@layout/searchbox_companies" android:visibility="gone" android:id="@+id/companies_searchbox"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/companies_filter_options"
+        android:visibility="gone"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingBottom="10dp"
+            android:text="@string/filter"/>
+
+        <ListView
+            android:choiceMode="multipleChoice"
+            android:id="@+id/company_filter_list"
+            android:layout_width="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="@color/white"
+            android:layout_height="wrap_content"></ListView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/background"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ListView
+                android:footerDividersEnabled="false"
+                android:fastScrollEnabled="true"
+                android:id="@+id/company_list"
+                android:dividerHeight="0dp"
+                android:divider="@null"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+        </LinearLayout>
+
+        <ListView
+            android:dividerHeight="0dp"
+            android:divider="@null"
+            android:background="@color/white"
+            android:id="@+id/alphabet_list"
+            android:layout_width="30dp"
+            android:layout_height="match_parent" >
+        </ListView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
