@@ -7,11 +7,12 @@ package com.example.fbashir.emcor.models.businessServiceDetails;
 public class IndustryRecognition {
     public String title;
     public String description;
+    public String file;
 
-    public IndustryRecognition(String title, String description) {
+    public IndustryRecognition(String title, String description, String file) {
         this.title = title;
         this.description = description;
-
+        this.file = file;
     }
 
     public String getTitle() {
@@ -20,5 +21,8 @@ public class IndustryRecognition {
 
     public String getDescription() {
         return this.description;
+    }
+    public String getFile() {
+        return this.file;
     }
 }

@@ -26,6 +26,7 @@ import com.example.fbashir.emcor.fragments.ServicesFragement;
 import com.example.fbashir.emcor.fragments.SplashFragement;
 import com.example.fbashir.emcor.fragments.TestFragement;
 import com.example.fbashir.emcor.helpers.DBHandler;
+import com.example.fbashir.emcor.helpers.MyUtils;
 
 import java.util.Calendar;
 
@@ -159,14 +160,25 @@ public class MainActivity extends AppCompatActivity
 
     public void gotoBusinessStats(View view)
     {
+        // Tracking Event
+        MyApplication.getInstance().trackEvent("Home", "Business Stats", "Tracking business stats");
+
           fragmentManager = getSupportFragmentManager();
           fragmentManager.beginTransaction().replace(R.id.content_frame, new BusinessStatsFragement()).addToBackStack(null).commit();
     }
 
     public void gotoSafetyStats(View view)
     {
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, new SafetyStatsFragement()).addToBackStack(null).commit();
+        if(MyUtils.ifNetworkPresent(this))
+        {
+            fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new SafetyStatsFragement()).addToBackStack(null).commit();
+        }
+        else
+        {
+            MyUtils.showAlert(this, getResources().getString(R.string.network_not_available));
+        }
+
     }
 
     public void gotoAboutUs(View view)
@@ -198,7 +210,8 @@ public class MainActivity extends AppCompatActivity
     public void gotoHome(View view)
     {
         fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, new HomeFragement()).addToBackStack(null).commit();
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        fragmentManager.beginTransaction().replace(R.id.content_frame, new HomeFragement()).commit();
     }
 
     public void gotoContactUs(View view)

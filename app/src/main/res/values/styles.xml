@@ -50,7 +50,7 @@
         <item name="android:textColor">#ffffff</item>
         <item name="android:fontFamily">Montserrat</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize">13dp</item>
     </style>
 
     <style name="homeButtonWhite">

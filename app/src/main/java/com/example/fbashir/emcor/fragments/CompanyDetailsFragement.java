@@ -159,14 +159,37 @@ public class CompanyDetailsFragement extends Fragment {
 
                         company_description_textview.setText(company_details.body.info.description);
                         company_phone_textview.setText(company_details.body.info.phone);
+                        company_phone_textview.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MyUtils.openDialer(getContext(), company_details.body.info.phone);
+                            }
+                        });
                         company_fax_textview.setText(company_details.body.info.fax);
                         company_toll_textview.setText(company_details.body.info.toll_free);
+                        company_toll_textview.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MyUtils.openDialer(getContext(), company_details.body.info.toll_free);
+                            }
+                        });
                         company_website_textview.setText(company_details.body.info.website);
 
                         company_division_phone_textview.setText(company_details.body.division.phone);
+                        company_division_phone_textview.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MyUtils.openDialer(getContext(),company_details.body.division.phone);
+                            }
+                        });
                         company_division_fax_textview.setText(company_details.body.division.fax);
                         company_division_toll_textview.setText(company_details.body.division.toll_free);
-
+                        company_division_toll_textview.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MyUtils.openDialer(getContext(), company_details.body.division.toll_free);
+                            }
+                        });
                         company_division_name.setText(company_details.body.division.title);
 
 

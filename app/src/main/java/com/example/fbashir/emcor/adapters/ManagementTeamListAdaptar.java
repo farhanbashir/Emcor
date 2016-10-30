@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
+import com.example.fbashir.emcor.helpers.MyUtils;
 import com.example.fbashir.emcor.models.WorldPopulation;
 import com.example.fbashir.emcor.models.businessServiceDetails.Team;
 
@@ -38,6 +39,8 @@ public class ManagementTeamListAdaptar extends BaseAdapter{
     public class ViewHolder {
         TextView name;
         TextView email;
+        TextView email_heading;
+        TextView contact_number_heading;
         TextView contact_number;
         TextView designation;
 
@@ -67,7 +70,9 @@ public class ManagementTeamListAdaptar extends BaseAdapter{
             holder.name = (TextView) view.findViewById(R.id.name);
             holder.designation = (TextView) view.findViewById(R.id.designation);
             holder.email = (TextView) view.findViewById(R.id.company_team_email);
+            holder.email_heading = (TextView) view.findViewById(R.id.company_team_email_heading);
             holder.contact_number = (TextView) view.findViewById(R.id.company_team_phone);
+            holder.contact_number_heading = (TextView) view.findViewById(R.id.company_team_phone_heading);
 
             view.setTag(holder);
         } else {
@@ -79,6 +84,25 @@ public class ManagementTeamListAdaptar extends BaseAdapter{
         holder.contact_number.setText(teamlist.get(position).getContact_number());
         holder.designation.setText(teamlist.get(position).getDesignation());
 
+        if(!teamlist.get(position).getEmail().equals(""))
+        {
+            holder.email_heading.setVisibility(View.VISIBLE);
+            holder.email.setVisibility(View.VISIBLE);
+        }
+        if(!teamlist.get(position).getContact_number().equals(""))
+        {
+            holder.contact_number_heading.setVisibility(View.VISIBLE);
+            holder.contact_number.setVisibility(View.VISIBLE);
+
+            holder.contact_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MyUtils.openDialer(mContext, teamlist.get(position).getContact_number());
+                }
+            });
+
+
+        }
 
 
 

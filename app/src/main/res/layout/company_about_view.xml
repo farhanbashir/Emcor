@@ -123,7 +123,6 @@
 
                 <TextView
                     style="@style/heading"
-                    android:text="Heading"
                     android:paddingBottom="5dp"
                     android:paddingRight="5dp"
                     android:layout_width="fill_parent"
@@ -133,7 +132,6 @@
                 <TextView
                     android:paddingBottom="5dp"
                     android:paddingRight="5dp"
-                    android:text="Description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_division_address"/>
@@ -142,8 +140,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:background="@color/imageBackground"
-                android:src="@drawable/contact_map_marker_white"
+                android:src="@drawable/map_icon_white"
                 android:id="@+id/company_division_map"
                 android:layout_width="80dp"
                 android:layout_height="80dp" />

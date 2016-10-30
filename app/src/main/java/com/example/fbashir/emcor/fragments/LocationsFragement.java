@@ -261,7 +261,7 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
 
         builder = new PlacePicker.IntentBuilder();
         myLocation = (AutoCompleteTextView) myView.findViewById(R.id.maps_searchbox_edittext);
-        mPlacesAdapter = new PlacesAutoCompleteAdapter(getContext(),
+        mPlacesAdapter = new PlacesAutoCompleteAdapter(getActivity(),getContext(),
                 android.R.layout.simple_list_item_1,
                 mGoogleApiClient,
                 BOUNDS_GREATER_SYDNEY,

@@ -13,14 +13,15 @@ public class Team {
     public String email;
     public String contact_number;
     public String designation;
+    public String photo;
 
-    public Team(String first_name, String last_name, String email, String contact_number, String designation) {
+    public Team(String first_name, String last_name, String email, String contact_number, String designation, String photo) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.contact_number = contact_number;
         this.designation = designation;
-
+        this.photo = photo;
     }
 
     public String getName() {
@@ -32,7 +33,7 @@ public class Team {
     public String getDesignation() {
         return this.designation;
     }
-
+    public String getPhoto(){return this.photo;}
 
 
 }

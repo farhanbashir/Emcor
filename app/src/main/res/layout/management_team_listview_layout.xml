@@ -22,6 +22,8 @@
          />
 
     <TextView
+        android:visibility="gone"
+        android:id="@+id/company_team_phone_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
@@ -29,13 +31,16 @@
         android:text="phone"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/company_team_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/homeText"
-        android:text="555-5555"/>
+        />
 
     <TextView
+        android:visibility="gone"
+        android:id="@+id/company_team_email_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -43,12 +48,13 @@
         android:text="email"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/company_team_email"
         android:paddingBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/homeText"
-        android:text="email@email.com"/>
+        />
 
 
 </LinearLayout>

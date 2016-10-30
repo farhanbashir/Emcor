@@ -1,5 +1,6 @@
 package com.example.fbashir.emcor.fragments;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,11 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +24,7 @@ import com.example.fbashir.emcor.helpers.Spinner;
 import com.example.fbashir.emcor.interfaces.EmcorPagesAPI;
 import com.example.fbashir.emcor.models.startup.AppConfig;
 import com.example.fbashir.emcor.models.startup.StartupClass;
+import com.google.android.gms.ads.formats.NativeAd;
 import com.google.gson.Gson;
 
 import java.util.Calendar;
@@ -29,6 +36,7 @@ import retrofit2.Response;
 import static com.example.fbashir.emcor.MainActivity.db;
 
 
+
 /**
  * Created by fbashir on 7/21/2016.
  */
@@ -37,10 +45,49 @@ public class BusinessStatsFragement extends Fragment {
     View myView;
     TextView title_textView;
     TextView first_white_box;
+    ScrollView scroll;
+    TextView hat_summary;
+    ImageView hat_image;
+    ImageView missing_image;
+    TextView stats_missing_children_recovered;
+    TextView missing_small_text;
+    TextView missing_summary;
+    TextView stats_work_fortune_500;
+    TextView text_work_fortune_500;
+    ImageView employee_image;
+    TextView stats_employees;
+    TextView employee_small_text;
+    TextView text_employee;
+    TextView stats_reduction;
+    TextView reduction_small_text;
+    TextView text_reduction;
+    TextView text_troop_support_program;
+    ImageView vigilant_image;
+    TextView stats_bim_designers;
+    TextView designers_small_text;
+    TextView stats_top_admired;
+    TextView admired_small_text;
+    TextView text_top_admired;
+    TextView second_white_text;
+    TextView total_locations;
+    TextView locations_small_text;
+    TextView total_employees;
+    TextView employees_heading;
+    TextView total_companies;
+    TextView companies_heading;
+    ImageView flag_image;
+    ImageView designers_image;
+    ImageView fortune_image;
+    ImageView map_image;
+
+
+
+
     AppConfig appconfig;
     private static final String HOME_KEY = "HOME_DATA";
     private static final String DIVISIONS_KEY = "SERVICES_DATA";
     private static final String APPCONFIG_KEY = "APPCONFIG_DATA";
+    private static final Integer VISIBILITY = 99;
 
 
     @Nullable
@@ -60,6 +107,114 @@ public class BusinessStatsFragement extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
+        scroll = (ScrollView) view.findViewById(R.id.scroller);
+        hat_image = (ImageView) view.findViewById(R.id.hat_image);
+        missing_image = (ImageView) view.findViewById(R.id.missing_image);
+        hat_summary = (TextView) view.findViewById(R.id.hat_summary);
+        missing_small_text = (TextView) view.findViewById(R.id.missing_small_text);
+        stats_missing_children_recovered = (TextView) view.findViewById(R.id.stats_missing_children_recovered);
+        missing_summary = (TextView) view.findViewById(R.id.missing_summary);
+        stats_work_fortune_500 = (TextView) view.findViewById(R.id.stats_work_fortune_500);
+        text_work_fortune_500 = (TextView) view.findViewById(R.id.text_work_fortune_500);
+        employee_image = (ImageView) view.findViewById(R.id.employee_image);
+        stats_employees = (TextView) view.findViewById(R.id.stats_employees);
+        employee_small_text = (TextView) view.findViewById(R.id.employee_small_text);
+        text_employee = (TextView) view.findViewById(R.id.text_employee);
+        vigilant_image = (ImageView) view.findViewById(R.id.vigilant_image);
+        stats_reduction = (TextView) view.findViewById(R.id.stats_reduction);
+        reduction_small_text = (TextView) view.findViewById(R.id.reduction_small_text);
+        text_reduction = (TextView) view.findViewById(R.id.text_reduction);
+        text_troop_support_program = (TextView) view.findViewById(R.id.text_troop_support_program);
+        stats_bim_designers = (TextView) view.findViewById(R.id.stats_bim_designers);
+        designers_small_text = (TextView) view.findViewById(R.id.designers_small_text);
+        stats_top_admired = (TextView) view.findViewById(R.id.stats_top_admired);
+        admired_small_text = (TextView) view.findViewById(R.id.admired_small_text);
+        text_top_admired = (TextView) view.findViewById(R.id.text_top_admired);
+        second_white_text = (TextView) view.findViewById(R.id.second_white_text);
+        total_locations = (TextView) view.findViewById(R.id.total_locations);
+        locations_small_text = (TextView) view.findViewById(R.id.locations_small_text);
+        total_employees = (TextView) view.findViewById(R.id.total_employees);
+        employees_heading = (TextView) view.findViewById(R.id.employees_heading);
+        total_companies = (TextView) view.findViewById(R.id.total_companies);
+        companies_heading = (TextView) view.findViewById(R.id.companies_heading);
+        flag_image = (ImageView) view.findViewById(R.id.flag_image);
+        designers_image = (ImageView) view.findViewById(R.id.designers_image);
+        fortune_image = (ImageView) view.findViewById(R.id.fortune_image);
+        map_image = (ImageView) view.findViewById(R.id.map_image);
+
+        scroll.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+
+                Rect scrollBounds = new Rect();
+                scroll.getHitRect(scrollBounds);
+                animateView(hat_image);
+                animateView(hat_summary);
+
+                animateView(missing_image);
+
+                animateView(missing_small_text);
+
+                animateView(stats_missing_children_recovered);
+
+                animateView(missing_summary);
+
+                animateView(stats_work_fortune_500);
+                animateView(text_work_fortune_500);
+                animateView(stats_employees);
+                animateView(employee_small_text);
+                animateView(text_employee);
+                animateView(vigilant_image);
+                animateView(stats_reduction);
+                animateView(reduction_small_text);
+                animateView(text_reduction);
+                animateView(flag_image);
+                animateView(text_troop_support_program);
+                animateView(designers_image);
+                animateView(stats_bim_designers);
+                animateView(designers_small_text);
+                animateView(employee_image);
+                animateView(fortune_image);
+                animateView(stats_top_admired);
+                animateView(admired_small_text);
+                animateView(text_top_admired);
+                animateView(second_white_text);
+                animateView(map_image);
+                animateView(total_locations);
+                animateView(locations_small_text);
+                animateView(total_employees);
+                animateView(employees_heading);
+                animateView(total_companies);
+                animateView(companies_heading);
+
+
+            }
+        });
+
+
+    }
+
+    public void animateView(View v)
+    {
+        Rect scrollBounds = new Rect();
+        scroll.getHitRect(scrollBounds);
+        if (v.getLocalVisibleRect(scrollBounds)&& v.getVisibility() == View.INVISIBLE) {
+            if(getVisiblePercent(v) > VISIBILITY)
+            {
+                Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.slide_up);
+                v.startAnimation(anim);
+                v.setVisibility(View.VISIBLE);
+            }
+
+        }
+    }
+
+    public static int getVisiblePercent(View v) {
+        Rect r = new Rect();
+        v.getGlobalVisibleRect(r);
+        double sVisible = r.width() * r.height();
+        double sTotal = v.getWidth() * v.getHeight();
+        return (int) (100 * sVisible / sTotal);
 
     }
 
@@ -148,7 +303,7 @@ public class BusinessStatsFragement extends Fragment {
         TextView stats_projects_summary = (TextView) myView.findViewById(R.id.stats_projects_summary);
         stats_projects_summary.setText(Html.fromHtml("As you read this, EMCOR is involved in <font color=\"#1a7d7f\">"+appconfig.stats_projects+"</font> projects"));
 
-        TextView hat_summary = (TextView) myView.findViewById(R.id.hat_summary);
+        hat_summary = (TextView) myView.findViewById(R.id.hat_summary);
         hat_summary.setText(Html.fromHtml("<font color=\"#D20878\">"+appconfig.text_pink_hard_hats+"</font> are worn by thousands of employees during October in support of breast cancer awareness. <b>Protect yourself. Get screend today</b>"));
 
         TextView stats_missing_children_recovered = (TextView) myView.findViewById(R.id.stats_missing_children_recovered);
@@ -170,10 +325,10 @@ public class BusinessStatsFragement extends Fragment {
         TextView text_employee = (TextView) myView.findViewById(R.id.text_employee);
         text_employee.setText(Html.fromHtml("EMCOR Experts: <font color=\"#C50189\">"+appconfig.stats_employees+" skilled employees</font> across the US and UK."));
 
-        TextView stats_reduction = (TextView) myView.findViewById(R.id.stats_reduction);
+        stats_reduction = (TextView) myView.findViewById(R.id.stats_reduction);
         stats_reduction.setText(appconfig.stats_reduction);
 
-        TextView text_reduction = (TextView) myView.findViewById(R.id.text_reduction);
+        text_reduction = (TextView) myView.findViewById(R.id.text_reduction);
         text_reduction.setText(Html.fromHtml("<font color=\"#F88601\">EMCOR group has an injury rate that is"+appconfig.stats_reduction+" lower than compareable industry averages.</font> The company is working 6.5 million more hours with more than 500 fewer injuries per year, for a rate of injury that is 64% lower than 10 years ago."));
 
         TextView text_troop_support_program = (TextView) myView.findViewById(R.id.text_troop_support_program);
@@ -189,17 +344,17 @@ public class BusinessStatsFragement extends Fragment {
         TextView text_top_admired = (TextView) myView.findViewById(R.id.text_top_admired);
         text_top_admired.setText(Html.fromHtml("Named by Fortune for the 8th consecutive year as one of the top "+appconfig.stats_top_admired+"<font color=\"#1a7d7f\">World's more admired companies in the engineering and construction industry</font>"));
 
-        TextView second_white_text = (TextView) myView.findViewById(R.id.second_white_text);
+        second_white_text = (TextView) myView.findViewById(R.id.second_white_text);
         second_white_text.setText(Html.fromHtml("Expertise across 9 major markets-- <font color=\"#1a7d7f\">Biotech/Healthcare/Commercial/Education/Entertainment/Hospitality/Manufacturing/Industrial, Public/Government, Technology, Financial Service, Transportation</font>"));
 
 
-        TextView total_locations = (TextView) myView.findViewById(R.id.total_locations);
+        total_locations = (TextView) myView.findViewById(R.id.total_locations);
         total_locations.setText(appconfig.stats_locations);
 
-        TextView total_companies = (TextView) myView.findViewById(R.id.total_companies);
+        total_companies = (TextView) myView.findViewById(R.id.total_companies);
         total_companies.setText(appconfig.stats_companies);
 
-        TextView total_employees = (TextView) myView.findViewById(R.id.total_employees);
+        total_employees = (TextView) myView.findViewById(R.id.total_employees);
         total_employees.setText(appconfig.stats_employees);
 
     }

@@ -23,4 +23,9 @@ public class AppConfig {
             public String text_troop_support_program;
             public String stats_bim_designers;
             public String stats_top_admired;
+            public String iphone_app_version;
+            public String iphone_app_url;
+            public String android_app_version;
+            public String android_app_url;
+
 }

@@ -32,7 +32,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.example.fbashir.emcor.MainActivity.db;
+import static com.example.fbashir.emcor.R.id.company_fax_textview;
 import static com.example.fbashir.emcor.R.id.company_image;
+import static com.example.fbashir.emcor.R.id.contactpage_fax_textview;
 
 /**
  * Created by fbashir on 7/21/2016.
@@ -47,6 +49,10 @@ public class ContactUsFragement extends Fragment {
     EditText email;
     EditText contact;
     EditText comments;
+    TextView company_phone_textview;
+    TextView company_fax_textview;
+    TextView company_tollfree_textview;
+    BusinessServiceDetailsBasic businessService;
 
     @Nullable
     @Override
@@ -63,14 +69,14 @@ public class ContactUsFragement extends Fragment {
 
     }
 
-    public void setContactData(final BusinessServiceDetailsBasic businessService)
+    public void setContactData()
     {
         TextView company_name_textview = (TextView) myView.findViewById(R.id.company_name_textview);
         TextView company_address_textview = (TextView) myView.findViewById(R.id.company_address_textview);
-        TextView company_fax_textview = (TextView) myView.findViewById(R.id.contactpage_fax_textview);
-        TextView company_phone_textview = (TextView) myView.findViewById(R.id.contactpage_phone_textview);
+        company_fax_textview = (TextView) myView.findViewById(contactpage_fax_textview);
+        company_phone_textview = (TextView) myView.findViewById(R.id.contactpage_phone_textview);
         TextView company_website_textview = (TextView) myView.findViewById(R.id.contactpage_website_textview);
-        TextView company_tollfree_textview = (TextView) myView.findViewById(R.id.contactpage_tollfree_textview);
+        company_tollfree_textview = (TextView) myView.findViewById(R.id.contactpage_tollfree_textview);
         ImageView company_image = (ImageView) myView.findViewById(R.id.company_image);
 
         company_name_textview.setText(businessService.title);
@@ -109,8 +115,8 @@ public class ContactUsFragement extends Fragment {
 
         if(localData != null && oneWeekAhead.getTimeInMillis() > localData.time)
         {
-            BusinessServiceDetailsBasic businessService = gson.fromJson(localData.data, BusinessServiceDetailsBasic.class);
-            setContactData(businessService);
+            businessService = gson.fromJson(localData.data, BusinessServiceDetailsBasic.class);
+            setContactData();
             if(spinner.getProgressDialog().isShowing())
             {
                 spinner.getProgressDialog().dismiss();
@@ -133,11 +139,12 @@ public class ContactUsFragement extends Fragment {
                         spinner.getProgressDialog().dismiss();
                     }
 
-                    BusinessServiceDetailsClass businessService = response.body();
+                    BusinessServiceDetailsClass businessServiceDetails = response.body();
                     if(response.code() == 200)
                     {
-                        db.addData(HOME_KEY,gson.toJson(businessService), System.currentTimeMillis());
-                        setContactData(businessService.body.info);
+                        db.addData(HOME_KEY,gson.toJson(businessServiceDetails), System.currentTimeMillis());
+                        businessService = businessServiceDetails.body.info;
+                        setContactData();
                     }
                     else
                     {
@@ -167,6 +174,24 @@ public class ContactUsFragement extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
+
+        company_phone_textview.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyUtils.openDialer(getContext(),businessService.phone );
+            }
+        });
+
+
+
+        company_tollfree_textview.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyUtils.openDialer(getContext(),businessService.toll_free );
+            }
+        });
+
+
         Button button = (Button) myView.findViewById(R.id.buttonContactUs);
         button.setOnClickListener(new OnClickListener()
         {
@@ -234,7 +259,8 @@ public class ContactUsFragement extends Fragment {
                             last_name_value,
                             email_value,
                             contact_value,
-                            comments_value);
+                            comments_value,
+                            getResources().getString(R.string.device_type));
 
 
                     call.enqueue(new Callback<ContactUsClass>() {

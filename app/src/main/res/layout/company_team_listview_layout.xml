@@ -14,6 +14,7 @@
         />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/company_team_designation"
         style="@style/homeText"
         android:layout_width="wrap_content"
@@ -21,6 +22,8 @@
         />
 
     <TextView
+        android:visibility="gone"
+        android:id="@+id/company_team_phone_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
@@ -28,12 +31,15 @@
         android:text="phone"/>
 
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/homeText"
         android:id="@+id/company_team_phone"/>
 
     <TextView
+        android:visibility="gone"
+        android:id="@+id/company_team_email_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -41,6 +47,7 @@
         android:text="email"/>
 
     <TextView
+        android:visibility="gone"
         android:paddingBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

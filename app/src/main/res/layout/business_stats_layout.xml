@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:id="@+id/scroller"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
+
 
         <LinearLayout
             android:layout_margin="15dp"
@@ -50,6 +52,8 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:id="@+id/hat_image"
+                    android:visibility="invisible"
                     android:layout_marginBottom="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
@@ -57,6 +61,7 @@
                     android:src="@drawable/hat"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:id="@+id/hat_summary"
                     android:textColor="@color/text_color"
                     android:gravity="center"
@@ -72,12 +77,15 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/missing_image"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/missing"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:textStyle="bold"
@@ -87,6 +95,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/stats_missing_children_recovered"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/missing_small_text"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,6 +104,7 @@
                     android:textSize="20dp"
                     android:text="missing children recovered"/>
                 <TextView
+                    android:visibility="invisible"
                     android:paddingTop="20dp"
                     android:textColor="@color/text_color"
                     android:layout_width="match_parent"
@@ -109,6 +120,7 @@
                     android:background="@android:color/darker_gray"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:gravity="center"
@@ -118,6 +130,7 @@
                     android:id="@+id/stats_work_fortune_500"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:paddingTop="20dp"
                     android:textColor="@color/text_color"
                     android:layout_width="match_parent"
@@ -133,12 +146,15 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/employee_image"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/employee"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -148,6 +164,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/stats_employees"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/employee_small_text"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -155,6 +173,7 @@
                     android:textSize="20dp"
                     android:text="employees"/>
                 <TextView
+                    android:visibility="invisible"
                     android:paddingTop="20dp"
                     android:textColor="@color/text_color"
                     android:layout_width="match_parent"
@@ -170,12 +189,15 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/vigilant_image"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/vigilant"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -185,6 +207,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/stats_reduction"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/reduction_small_text"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -192,6 +216,7 @@
                     android:textSize="20dp"
                     android:text="reduction"/>
                 <TextView
+                    android:visibility="invisible"
                     android:paddingTop="20dp"
                     android:textColor="@color/text_color"
                     android:layout_width="match_parent"
@@ -207,6 +232,8 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:id="@+id/flag_image"
+                    android:visibility="invisible"
                     android:layout_marginBottom="40dp"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
@@ -214,6 +241,7 @@
                     android:src="@drawable/flag"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/text_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -228,12 +256,15 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/designers_image"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/designers"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -243,6 +274,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/stats_bim_designers"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/designers_small_text"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -258,12 +291,15 @@
                     android:background="@android:color/darker_gray"/>
 
                 <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/fortune_image"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/fortune"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -273,6 +309,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/stats_top_admired"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/admired_small_text"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -280,6 +318,7 @@
                     android:textSize="20dp"
                     android:text="world's more admired companies"/>
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/text_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -288,6 +327,7 @@
                     android:id="@+id/text_top_admired"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:layout_marginTop="40dp"
                     android:padding="20dp"
                     style="@style/background"
@@ -296,6 +336,8 @@
                     android:id="@+id/second_white_text"/>
 
                 <ImageView
+                    android:id="@+id/map_image"
+                    android:visibility="invisible"
                     android:layout_marginTop="40dp"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
@@ -303,6 +345,7 @@
                     android:src="@drawable/map"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -312,6 +355,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/total_locations"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/locations_small_text"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -320,6 +365,7 @@
                     android:text="locations"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -329,6 +375,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/total_employees"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/employees_heading"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -336,6 +384,7 @@
                     android:text="employees"/>
 
                 <TextView
+                    android:visibility="invisible"
                     android:textColor="@color/locations_tab_background_selected"
                     android:textSize="40dp"
                     android:paddingTop="40dp"
@@ -345,6 +394,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/total_companies"/>
                 <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/companies_heading"
                     android:textColor="@color/locations_tab_background_selected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -360,5 +411,6 @@
                     android:background="@android:color/darker_gray"/>
 
         </LinearLayout>
+
 
 </ScrollView>

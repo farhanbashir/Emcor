@@ -61,7 +61,8 @@ public interface EmcorPagesAPI {
                                    @Field("last_name") String last_name,
                                    @Field("email") String email,
                                    @Field("contact_number") String contact_number,
-                                   @Field("message") String message);
+                                   @Field("message") String message,
+                                   @Field("device_type") String device_type);
 
     @POST("getAppConfigurations")
     Call<AppConfigurationClass> getAppConfigurations();

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
+import com.example.fbashir.emcor.helpers.MyUtils;
 import com.example.fbashir.emcor.models.businessServiceDetails.IndustryRecognition;
 import com.example.fbashir.emcor.models.businessServiceDetails.Team;
 
@@ -73,6 +74,12 @@ public class IndustryRecognitionListAdaptar extends BaseAdapter{
         holder.title.setText(industryrecognitionlist.get(position).getTitle());
         holder.description.setText(industryrecognitionlist.get(position).getDescription());
 
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyUtils.showAlert(mContext, "hello");
+            }
+        });
 
 
 

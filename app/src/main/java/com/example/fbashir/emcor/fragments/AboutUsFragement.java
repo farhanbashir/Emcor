@@ -507,7 +507,7 @@ public class AboutUsFragement extends Fragment {
         for (int i = 0; i < businessService.industry_recognition.size(); i++)
         {
             IndustryRecognition wp = new IndustryRecognition(businessService.industry_recognition.get(i).title,
-                    businessService.industry_recognition.get(i).description);
+                    businessService.industry_recognition.get(i).description, businessService.industry_recognition.get(i).file);
             // Binds all strings into an array
             arraylist_industry.add(wp);
         }

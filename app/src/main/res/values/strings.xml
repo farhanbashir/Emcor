@@ -34,7 +34,8 @@ Nunc neque dui, egestas at risus ultrices, suscipit tempus sapien. Fusce rutrum 
 
 
     <string name="google_map_api_key">AIzaSyCCls3p4BMe6QRLf3oOl5wufTMVdvjQ_xk</string>
-
+    <string name="google_analytics_code">UA-86454515-1</string>
+    <string name="device_type">2</string>
     <string name="action_settings">Settings</string>
     <string name="services_heading">EMCOR companies by headquater</string>
     <!--<string name="server_base_url">http://6hwy-tr5z.accessdomain.com/api/</string>-->
@@ -76,5 +77,6 @@ Nunc neque dui, egestas at risus ultrices, suscipit tempus sapien. Fusce rutrum 
     <string name="address_tag">address</string>
     <string name="alert">Alert</string>
     <string name="some_error">Some error</string>
+    <string name="network_not_available">Internet connection not available</string>
     <string name="no_company_selected">No company selected</string>
 </resources>

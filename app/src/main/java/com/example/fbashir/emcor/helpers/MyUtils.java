@@ -4,11 +4,14 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 import com.example.fbashir.emcor.R;
 
@@ -32,6 +35,27 @@ public class MyUtils {
     {
         view.startAnimation(AnimationUtils.loadAnimation(context,
                 R.anim.slide_down));
+    }
+
+    public static boolean ifNetworkPresent(Context context)
+    {
+        boolean result = false;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) { // connected to the internet
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                // connected to wifi
+                result = true;
+            } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                // connected to the mobile provider's data plan
+                result = true;
+            }
+        } else {
+            // not connected to the internet
+            result = false;
+        }
+
+        return result;
     }
 
     public void SlideDown(View view,Context context)
@@ -98,6 +122,15 @@ public class MyUtils {
 
         // show it
         alertDialog.show();
+    }
+
+    public static void openDialer(Context context, String phone_number)
+    {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.DIAL");
+        intent.setData(Uri.parse("tel:"+phone_number));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     public static void openMailer(Context context, String msg)

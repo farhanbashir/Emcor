@@ -11,6 +11,7 @@ import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLngBounds;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
-import static com.google.android.gms.internal.zzir.runOnUiThread;
+//import static com.google.android.gms.internal.zzir.runOnUiThread;
 
 /**
  * Adapter from the Google Places Complete sample app
@@ -31,11 +32,13 @@ import static com.google.android.gms.internal.zzir.runOnUiThread;
 public class PlacesAutoCompleteAdapter
         extends ArrayAdapter<PlacesAutoCompleteAdapter.PlaceAutocomplete> implements Filterable {
 
-    private static final String TAG = "PlaceAutocompleteAdapter";
+    private static final String TAG = "AutocompleteAdapter";
     /**
      * Current results returned by this adapter.
      */
     private ArrayList<PlaceAutocomplete> mResultList;
+
+    private Activity activity;
 
     /**
      * Handles autocomplete requests.
@@ -57,9 +60,10 @@ public class PlacesAutoCompleteAdapter
      *
      * @see android.widget.ArrayAdapter#ArrayAdapter(android.content.Context, int)
      */
-    public PlacesAutoCompleteAdapter(Context context, int resource, GoogleApiClient googleApiClient, LatLngBounds bounds,
+    public PlacesAutoCompleteAdapter(Activity act,Context context, int resource, GoogleApiClient googleApiClient, LatLngBounds bounds,
                                      AutocompleteFilter filter) {
         super(context, resource);
+        activity = act;
         mGoogleApiClient = googleApiClient;
         mBounds = bounds;
         mPlaceFilter = filter;
@@ -124,14 +128,20 @@ public class PlacesAutoCompleteAdapter
 
                         if (mResultList != null && mResultList.size() > 0)
                         {
-                            runOnUiThread(new Runnable() {
+                            activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-
                                     notifyDataSetChanged();
-
                                 }
                             });
+//                            runOnUiThread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//
+//                                    notifyDataSetChanged();
+//
+//                                }
+//                            });
 
                         }
                         else
@@ -196,7 +206,7 @@ public class PlacesAutoCompleteAdapter
                 AutocompletePrediction prediction = iterator.next();
                 // Get the details of this prediction and copy it into a new PlaceAutocomplete object.
                 resultList.add(new PlaceAutocomplete(prediction.getPlaceId(),
-                        prediction.getDescription()));
+                        prediction.getPrimaryText(null)));
             }
 
             // Release the buffer now that all data has been copied.

@@ -101,6 +101,13 @@ public class CorporateOfficesListAdaptar extends BaseAdapter{
             }
         });
 
+        holder.phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyUtils.openDialer(mContext, corporateofficeslist.get(position).getPhone());
+            }
+        });
+
 
         return view;
     }

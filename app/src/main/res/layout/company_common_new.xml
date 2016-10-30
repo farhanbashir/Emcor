@@ -25,10 +25,10 @@
 
 
     </LinearLayout>
-
+    <!--android:background="@color/imageBackground"-->
     <ImageButton
-        android:background="@color/imageBackground"
-        android:src="@drawable/contact_map_marker_white"
+
+        android:src="@drawable/map_icon_white"
         android:id="@+id/company_image"
         android:layout_width="80dp"
         android:layout_height="80dp" />
