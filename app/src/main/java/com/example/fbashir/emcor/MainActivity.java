@@ -24,7 +24,6 @@ import com.example.fbashir.emcor.fragments.LocationsFragement;
 import com.example.fbashir.emcor.fragments.SafetyStatsFragement;
 import com.example.fbashir.emcor.fragments.ServicesFragement;
 import com.example.fbashir.emcor.fragments.SplashFragement;
-import com.example.fbashir.emcor.fragments.TestFragement;
 import com.example.fbashir.emcor.helpers.DBHandler;
 import com.example.fbashir.emcor.helpers.MyUtils;
 
@@ -199,12 +198,6 @@ public class MainActivity extends AppCompatActivity
     {
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, new CompaniesFragement()).addToBackStack(null).commit();
-    }
-
-    public void gotoLocations(View view)
-    {
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, new LocationsFragement()).addToBackStack(null).commit();
     }
 
     public void gotoHome(View view)

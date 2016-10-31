@@ -62,7 +62,7 @@ public class ServicesListAdaptar extends ArrayAdapter<DivisionsBasic>{
         {
             arrowImage.setVisibility(View.VISIBLE);
         }
-    //imageView.setImageDrawable(images[position]);
+
 
 
         return single_row;

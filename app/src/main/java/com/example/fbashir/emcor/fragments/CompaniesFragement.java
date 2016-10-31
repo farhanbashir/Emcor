@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -61,6 +62,7 @@ public class CompaniesFragement extends Fragment {
     ServicesListAdaptar services_adapter;
     LinearLayout filteroptions_textview;
     ImageButton filter_button;
+    EditText searchBox;
     String division_id = "";
     String location_latitide = "";
     String location_longitude = "";
@@ -108,6 +110,7 @@ public class CompaniesFragement extends Fragment {
 
         filter_white_view = (LinearLayout) view.findViewById(R.id.filter_white_view);
         filteroptions_textview = (LinearLayout) view.findViewById(R.id.companies_filter_options);
+        searchBox =(EditText) myView.findViewById(R.id.companies_searchbox_edittext);
         //final TextView searchtext_holder_textview = (TextView) view.findViewById(R.id.companies_searchtext_holder);
 
         search_button.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +122,10 @@ public class CompaniesFragement extends Fragment {
                 filter_button.setBackground(background_filter);
                 filteroptions_textview.setVisibility(View.GONE);
                 filter_white_view.setVisibility(View.GONE);
+                searchBox.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+                //imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                 //searchtext_holder_textview.setVisibility(View.GONE);
             }
         });
@@ -126,7 +133,7 @@ public class CompaniesFragement extends Fragment {
         cancelsearch_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText searchBox =(EditText) myView.findViewById(R.id.companies_searchbox_edittext);
+                searchBox =(EditText) myView.findViewById(R.id.companies_searchbox_edittext);
                 String searchText = searchBox.getText().toString();
                 searchBox.setText("");
                 searchbox_view.setVisibility(View.GONE);
@@ -135,7 +142,9 @@ public class CompaniesFragement extends Fragment {
                 filter_button.setBackground(background_filter);
                 filteroptions_textview.setVisibility(View.GONE);
                 filter_white_view.setVisibility(View.GONE);
-
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+                //imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
                 //searchtext_holder_textview.setText(searchText);
                 //searchtext_holder_textview.setVisibility(View.VISIBLE);
@@ -184,7 +193,7 @@ public class CompaniesFragement extends Fragment {
 
 
         //searchbox
-        EditText searchBox =(EditText) myView.findViewById(R.id.companies_searchbox_edittext);
+
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

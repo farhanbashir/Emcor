@@ -74,12 +74,16 @@ public class IndustryRecognitionListAdaptar extends BaseAdapter{
         holder.title.setText(industryrecognitionlist.get(position).getTitle());
         holder.description.setText(industryrecognitionlist.get(position).getDescription());
 
-        holder.title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyUtils.showAlert(mContext, "hello");
-            }
-        });
+        if(!industryrecognitionlist.get(position).getFile().equals(""))
+        {
+            holder.title.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MyUtils.openViewer(mContext, industryrecognitionlist.get(position).getFile());
+                }
+            });
+        }
+
 
 
 

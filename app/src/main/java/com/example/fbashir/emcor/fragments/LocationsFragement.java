@@ -14,6 +14,7 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -73,7 +74,6 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
     TextView title_textView;
     Spinner spinner;
     private static GoogleMap mMap;
-    private static Double latitude, longitude;
     SupportMapFragment mapFragment;
     CompaniesLocationsListAdaptar companies_locations_adapter;
     ServicesListAdaptar services_adapter;
@@ -217,6 +217,9 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
                 filter_button.setBackground(background_filter);
                 filteroptions_textview.setVisibility(View.GONE);
                 filter_white_view.setVisibility(View.GONE);
+                myLocation.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
             }
         });
 
@@ -229,6 +232,8 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
                 filter_button.setBackground(background_filter);
                 filteroptions_textview.setVisibility(View.GONE);
                 filter_white_view.setVisibility(View.GONE);
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
             }
         });
 
@@ -363,10 +368,6 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
                         view.setSelected(true);
                     }
 
-
-
-                    //hideServiceFilter();
-                    //if(companies.body.info.size() > 0)
                     if(companies_locations_adapter.getTotalCompaniesCount() > 0)
                     {
                         companies_locations_adapter.filterByDivision(choices);
@@ -391,12 +392,8 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
 
     public void getCompaniesData()
     {
-//        latitude = 26.78;
-//        longitude = 72.56;
-
         mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.location_map);
-        //mapFragment.getMapAsync(this);
 
         //main work start
         if(!spinner.getProgressDialog().isShowing())
@@ -433,7 +430,6 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
                 else
                 {
                     MyUtils.showAlert(getContext(), companies.header.message);
-                    //Toast.makeText(getContext(),companies.header.message.toString(),  Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -445,7 +441,6 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
                     spinner.getProgressDialog().dismiss();
                 }
                 MyUtils.showAlert(getContext(), getResources().getString(R.string.some_error));
-                //Toast.makeText(getContext(), "Some error" , Toast.LENGTH_LONG).show();
 
             }
         });
@@ -553,16 +548,6 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
     @Override
     public void onDestroyView() {
 
-
-//        try {
-////            mapFragment =  (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.maps_list);
-//            FragmentTransaction ft = fragmentManager.beginTransaction();
-//            ft.remove(mapFragment);
-//            ft.commit();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
         super.onDestroyView();
     }
 
@@ -595,7 +580,6 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
         DBHandler.LocalData localData = db.getData(DATA_KEY);
 
         divisions = gson.fromJson(localData.data, new TypeToken<ArrayList<DivisionsBasic>>(){}.getType());
-        //divisions = gson.fromJson(localData.data, DivisionsClass.class);
 
     }
 

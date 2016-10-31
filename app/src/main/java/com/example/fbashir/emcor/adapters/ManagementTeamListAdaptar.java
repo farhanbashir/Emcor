@@ -5,16 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.MyUtils;
 import com.example.fbashir.emcor.models.WorldPopulation;
 import com.example.fbashir.emcor.models.businessServiceDetails.Team;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import static com.example.fbashir.emcor.R.id.imageView;
 
 /**
  * Created by fbashir on 7/25/2016.
@@ -43,7 +47,7 @@ public class ManagementTeamListAdaptar extends BaseAdapter{
         TextView contact_number_heading;
         TextView contact_number;
         TextView designation;
-
+        ImageView photo;
     }
 
     @Override
@@ -73,7 +77,7 @@ public class ManagementTeamListAdaptar extends BaseAdapter{
             holder.email_heading = (TextView) view.findViewById(R.id.company_team_email_heading);
             holder.contact_number = (TextView) view.findViewById(R.id.company_team_phone);
             holder.contact_number_heading = (TextView) view.findViewById(R.id.company_team_phone_heading);
-
+            holder.photo = (ImageView) view.findViewById(R.id.member_photo);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -102,6 +106,17 @@ public class ManagementTeamListAdaptar extends BaseAdapter{
             });
 
 
+        }
+
+        if(!teamlist.get(position).getPhoto().equals(""))
+        {
+            holder.photo.setVisibility(View.VISIBLE);
+
+            Picasso.with(mContext)
+                    .load(teamlist.get(position).getPhoto())
+                    .resize(60,60)
+                    .centerCrop()
+                    .into(holder.photo);
         }
 
 

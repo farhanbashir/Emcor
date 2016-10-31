@@ -156,14 +156,6 @@ public class CompaniesListAdaptar extends BaseAdapter implements SectionIndexer 
         holder.name.setText(companieslist.get(position).getName());
         holder.name.setTag(companieslist.get(position).getCompany_id());
 
-        //int section = getSectionForPosition(position);
-//        if (position == getPositionForSection(position)) {
-//            holder.sort_key.setText(sections[position]);
-//            holder.sort_key.setVisibility(View.VISIBLE);
-//        } else {
-//            holder.sort_key.setVisibility(View.GONE);
-//        }
-
         String ch = companieslist.get(position).getName().substring(0,1).toUpperCase();
         Log.d("ch","position="+position+" ch="+ch+" companies="+companieslist.size());
         if(position != companieslist.size() -1)
@@ -185,14 +177,6 @@ public class CompaniesListAdaptar extends BaseAdapter implements SectionIndexer 
             holder.sort_key.setVisibility(View.GONE);
         }
 
-//        if(position != companieslist.size())
-//        {
-//            String ch1 = companieslist.get(position + 1).getName().substring(0,1).toUpperCase();
-//            if(ch.equals(ch1))
-//            {
-//                holder.divider.setVisibility(View.VISIBLE);
-//            }
-//        }
 
         return view;
     }
@@ -251,26 +235,5 @@ public class CompaniesListAdaptar extends BaseAdapter implements SectionIndexer 
 
         notifyDataSetChanged();
     }
-
-//    public void filterByDivision(String division)
-//    {
-//        division = division.toLowerCase(Locale.getDefault());
-//        companieslist.clear();
-//        if (division.length() == 0) {
-//            companieslist.addAll(arraylist);
-//        }
-//        else
-//        {
-//            for (CompaniesBasic wp : arraylist)
-//            {
-//                if (wp.getDivision().equals(division))
-//                {
-//                    companieslist.add(wp);
-//                }
-//            }
-//        }
-//        notifyDataSetChanged();
-//    }
-
 
 }

@@ -106,7 +106,7 @@
             android:background="@color/tab_background_selected"/>
 
         <TextView
-            style="@style/heading"
+            style="@style/headingBig"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

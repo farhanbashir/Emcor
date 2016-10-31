@@ -147,25 +147,6 @@ public class CompaniesLocationsListAdaptar extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-//    public void filterByDivision(String division)
-//    {
-//        division = division.toLowerCase(Locale.getDefault());
-//        companieslist.clear();
-//        if (division.length() == 0) {
-//            companieslist.addAll(arraylist);
-//        }
-//        else
-//        {
-//            for (CompaniesBasic wp : arraylist)
-//            {
-//                if (wp.getDivision().equals(division))
-//                {
-//                    companieslist.add(wp);
-//                }
-//            }
-//        }
-//        notifyDataSetChanged();
-//    }
 
 
 }
