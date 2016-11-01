@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -160,7 +159,7 @@ public class MainActivity extends AppCompatActivity
     public void gotoBusinessStats(View view)
     {
         // Tracking Event
-        MyApplication.getInstance().trackEvent("Home", "Business Stats", "Tracking business stats");
+        //MyApplication.getInstance().trackEvent("Home", "Business Stats", "Tracking business stats");
 
           fragmentManager = getSupportFragmentManager();
           fragmentManager.beginTransaction().replace(R.id.content_frame, new BusinessStatsFragement()).addToBackStack(null).commit();

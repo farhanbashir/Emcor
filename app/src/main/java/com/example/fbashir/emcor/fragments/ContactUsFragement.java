@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.DBHandler;
@@ -32,8 +31,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.example.fbashir.emcor.MainActivity.db;
-import static com.example.fbashir.emcor.R.id.company_fax_textview;
-import static com.example.fbashir.emcor.R.id.company_image;
 import static com.example.fbashir.emcor.R.id.contactpage_fax_textview;
 
 /**

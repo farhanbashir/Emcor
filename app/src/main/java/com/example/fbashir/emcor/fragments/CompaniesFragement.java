@@ -22,7 +22,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.adapters.CompaniesListAdaptar;
@@ -40,8 +39,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -111,7 +108,6 @@ public class CompaniesFragement extends Fragment {
         filter_white_view = (LinearLayout) view.findViewById(R.id.filter_white_view);
         filteroptions_textview = (LinearLayout) view.findViewById(R.id.companies_filter_options);
         searchBox =(EditText) myView.findViewById(R.id.companies_searchbox_edittext);
-        //final TextView searchtext_holder_textview = (TextView) view.findViewById(R.id.companies_searchtext_holder);
 
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,10 +140,7 @@ public class CompaniesFragement extends Fragment {
                 filter_white_view.setVisibility(View.GONE);
                 InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-                //imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
-                //searchtext_holder_textview.setText(searchText);
-                //searchtext_holder_textview.setVisibility(View.VISIBLE);
             }
         });
 
@@ -167,14 +160,7 @@ public class CompaniesFragement extends Fragment {
                     filter_white_view.setVisibility(View.VISIBLE);
                     filter_button.setBackgroundColor(Color.WHITE);
                     filteroptions_textview.setVisibility(View.VISIBLE);
-                    //filteroptions_textview.animate().alpha(1.0f);
-//                    MyUtils utils = new MyUtils();
-//                    utils.SlideUP(filteroptions_textview, getContext());
 
-
-
-                    //filteroptions_textview.bringToFront();
-                    //filteroptions_textview.setZ(100);
                 }
 
 
@@ -185,8 +171,6 @@ public class CompaniesFragement extends Fragment {
         companies_location_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                final Spinner spinner = new Spinner(getContext());
-//                spinner.getProgressDialog().show();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, new LocationsFragement()).addToBackStack(null).commit();
             }
         });
@@ -207,7 +191,6 @@ public class CompaniesFragement extends Fragment {
                     companies_adapter.filter(s.toString());
                 }
 
-                //companies_adapter.getFilter().filter(s.toString());
             }
 
             @Override
@@ -299,12 +282,19 @@ public class CompaniesFragement extends Fragment {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                TextView textView = (TextView) v.findViewById(R.id.companies_textView);
-                editor.putString("selected_company_id", textView.getTag().toString());
-                editor.commit();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, new CompanyDetailsFragement()).addToBackStack(null).commit();
+                if(MyUtils.ifNetworkPresent(getContext()))
+                {
+                    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    TextView textView = (TextView) v.findViewById(R.id.companies_textView);
+                    editor.putString("selected_company_id", textView.getTag().toString());
+                    editor.commit();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, new CompanyDetailsFragement()).addToBackStack(null).commit();
+                }
+                else
+                {
+                    MyUtils.showAlert(getContext(), getResources().getString(R.string.network_not_available));
+                }
 
             }
         });
@@ -410,7 +400,6 @@ public class CompaniesFragement extends Fragment {
                         spinner.getProgressDialog().dismiss();
                     }
                     MyUtils.showAlert(getContext(), getResources().getString(R.string.some_error));
-                    //Toast.makeText(getContext(), t.getMessage() , Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -426,7 +415,6 @@ public class CompaniesFragement extends Fragment {
 
         if(localData != null && oneWeekAhead.getTimeInMillis() > localData.time)
         {
-            //divisions = gson.fromJson(localData.data, DivisionsClass.class);
             ArrayList<DivisionsBasic> divisionsArray = gson.fromJson(localData.data, new TypeToken<ArrayList<DivisionsBasic>>(){}.getType());
             setFiltersData(divisionsArray);
         }
@@ -451,13 +439,14 @@ public class CompaniesFragement extends Fragment {
                     }
                     else
                     {
-                        //Toast.makeText(getContext(),divisions.header.message.toString(),  Toast.LENGTH_LONG).show();
+                        MyUtils.showAlert(getContext(), divisions.header.message.toString());
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<DivisionsClass> call, Throwable t) {
+                    MyUtils.showAlert(getContext(), getResources().getString(R.string.some_error));
                     //Toast.makeText(getContext(), "Some error" , Toast.LENGTH_LONG).show();
                 }
             });

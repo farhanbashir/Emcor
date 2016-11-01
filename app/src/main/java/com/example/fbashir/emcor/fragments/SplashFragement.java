@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.DBHandler;
@@ -124,7 +123,6 @@ public class SplashFragement extends Fragment {
                     else
                     {
                         MyUtils.showAlert(getContext(), response.body().header.error);
-                        //Toast.makeText(getContext(),response.body().header.error,Toast.LENGTH_LONG).show();
                     }
 
 
@@ -140,7 +138,6 @@ public class SplashFragement extends Fragment {
                         spinner.getProgressDialog().dismiss();
                     }
                     MyUtils.showAlert(getContext(), getResources().getString(R.string.some_error));
-                    //Toast.makeText(getContext(),"Some error",Toast.LENGTH_LONG).show();
                 }
             });
     }

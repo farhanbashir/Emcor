@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
@@ -291,100 +290,6 @@ public class AboutUsFragement extends Fragment {
             }
         });
 
-
-
-//        //making tabs for each view
-//        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
-//
-//        //home tab
-//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.building_icn));
-//
-//        //management team tab
-//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.managment_icn));
-//
-//        //industry recognition tab
-//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.recognition_icn));
-//
-//        if(about_selected_tab.equals("industry_recognition"))
-//        {
-//            tabLayout.getTabAt(2).select();
-//            //getActivity().setTitle(R.string.industry_recognition_text);
-//            title_textView.setText(R.string.industry_recognition_text);
-//
-//            about_view.setVisibility(View.INVISIBLE);
-//            team_view.setVisibility(View.INVISIBLE);
-//            corporate_view.setVisibility(View.INVISIBLE);
-//            industry_view.setVisibility(View.VISIBLE);
-//
-//            SharedPreferences.Editor editor = sharedPref.edit();
-//            editor.remove("about_selected_tab");
-//            editor.commit();
-//        }
-//
-//        //corporate offices tab
-//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.map_icn));
-//
-//
-//
-//        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                if(tabLayout.getSelectedTabPosition() == 0)
-//                {
-//                    //getActivity().setTitle(businessServiceDetails.body.info.title);
-//                    title_textView.setText(businessServiceDetails.body.info.title);
-//
-//                    about_view.setVisibility(View.VISIBLE);
-//                    team_view.setVisibility(View.INVISIBLE);
-//                    corporate_view.setVisibility(View.INVISIBLE);
-//                    industry_view.setVisibility(View.INVISIBLE);
-//                }
-//                else if(tabLayout.getSelectedTabPosition() == 1)
-//                {
-//                    //getActivity().setTitle(R.string.management_team_text);
-//                    title_textView.setText(R.string.management_team_text);
-//
-//                    about_view.setVisibility(View.INVISIBLE);
-//                    team_view.setVisibility(View.VISIBLE);
-//                    corporate_view.setVisibility(View.INVISIBLE);
-//                    industry_view.setVisibility(View.INVISIBLE);
-//
-//                }
-//                else if(tabLayout.getSelectedTabPosition() == 2)
-//                {
-//                    //getActivity().setTitle(R.string.industry_recognition_text);
-//                    title_textView.setText(R.string.industry_recognition_text);
-//
-//                    about_view.setVisibility(View.INVISIBLE);
-//                    team_view.setVisibility(View.INVISIBLE);
-//                    corporate_view.setVisibility(View.INVISIBLE);
-//                    industry_view.setVisibility(View.VISIBLE);
-//                }
-//                else if(tabLayout.getSelectedTabPosition() == 3)
-//                {
-//                    //getActivity().setTitle(R.string.corporate_offices_text);
-//                    title_textView.setText(R.string.corporate_offices_text);
-//
-//                    about_view.setVisibility(View.INVISIBLE);
-//                    team_view.setVisibility(View.INVISIBLE);
-//                    corporate_view.setVisibility(View.VISIBLE);
-//                    industry_view.setVisibility(View.INVISIBLE);
-//                }
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-
-
-
     }
 
     public void getAboutUsData()
@@ -440,7 +345,6 @@ public class AboutUsFragement extends Fragment {
                     else
                     {
                         MyUtils.showAlert(getContext(), response.body().header.error);
-                        //Toast.makeText(getContext(),response.body().header.error,Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -452,7 +356,6 @@ public class AboutUsFragement extends Fragment {
                     }
                     main_layout.setVisibility(View.VISIBLE);
                     MyUtils.showAlert(getContext(), getResources().getString(R.string.some_error));
-                    //Toast.makeText(getContext(),"Some error",Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -463,12 +366,8 @@ public class AboutUsFragement extends Fragment {
 
     public void setAboutUsData(BusinessServiceDetailsBasic businessService)
     {
-        //getActivity().setTitle(businessServiceDetails.body.info.title);
         title_textView.setText(businessService.title);
 
-        //about tab
-//                    ImageView imageView = (ImageView) myView.findViewById(R.id.aboutus_image);
-//                    Picasso.with(getContext()).load(businessServiceDetails.body.info.logo).into(imageView);
 
         sliderShow = (SliderLayout) myView.findViewById(R.id.aboutus_image);
 
@@ -484,17 +383,6 @@ public class AboutUsFragement extends Fragment {
 
         TextView textView = (TextView) myView.findViewById(R.id.aboutus_text);
         textView.setText(businessService.description);
-
-
-        //management team tab
-//                    for (int i = 0; i < businessServiceDetails.body.info.team.size(); i++)
-//                    {
-//                        Team wp = new Team(businessServiceDetails.body.info.team.get(i).first_name,
-//                                            businessServiceDetails.body.info.tea
-//                                businessServiceDetails.body.info.team.get(i).designation);
-//                        // Binds all strings into an array
-//                        arraylist_team.add(wp);
-//                    }
 
         final ManagementTeamListAdaptar team = new ManagementTeamListAdaptar(getActivity(), businessService.team);
 

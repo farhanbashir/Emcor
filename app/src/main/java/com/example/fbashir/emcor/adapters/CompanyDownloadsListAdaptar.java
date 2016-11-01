@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
-import com.example.fbashir.emcor.models.companyDetails.Advantage;
 import com.example.fbashir.emcor.models.companyDetails.Download;
 
 import java.util.ArrayList;

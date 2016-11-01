@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -23,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.adapters.CompaniesLocationsListAdaptar;
@@ -326,11 +324,18 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("selected_company_id", companies.body.info.get(position).company_id);
-                editor.commit();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, new CompanyDetailsFragement()).addToBackStack(null).commit();
+                if(MyUtils.ifNetworkPresent(getContext()))
+                {
+                    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("selected_company_id", companies.body.info.get(position).company_id);
+                    editor.commit();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, new CompanyDetailsFragement()).addToBackStack(null).commit();
+                }
+                else
+                {
+                    MyUtils.showAlert(getContext(), getResources().getString(R.string.network_not_available));
+                }
 
             }
         });
@@ -504,14 +509,24 @@ public class LocationsFragement extends Fragment  implements OnMapReadyCallback 
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
-                        String str = marker.getTitle();
-                        final String[] str2= str.split("_");
 
-                        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putString("selected_company_id", str2[0]);
-                        editor.commit();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, new CompanyDetailsFragement()).addToBackStack(null).commit();
+
+                        if(MyUtils.ifNetworkPresent(getContext()))
+                        {
+                            String str = marker.getTitle();
+                            final String[] str2= str.split("_");
+
+                            SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("selected_company_id", str2[0]);
+                            editor.commit();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, new CompanyDetailsFragement()).addToBackStack(null).commit();
+                        }
+                        else
+                        {
+                            MyUtils.showAlert(getContext(), getResources().getString(R.string.network_not_available));
+                        }
+
 
                     }
                 });

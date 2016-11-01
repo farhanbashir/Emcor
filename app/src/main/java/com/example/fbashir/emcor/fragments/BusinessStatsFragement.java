@@ -14,7 +14,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.DBHandler;
@@ -24,7 +23,6 @@ import com.example.fbashir.emcor.helpers.Spinner;
 import com.example.fbashir.emcor.interfaces.EmcorPagesAPI;
 import com.example.fbashir.emcor.models.startup.AppConfig;
 import com.example.fbashir.emcor.models.startup.StartupClass;
-import com.google.android.gms.ads.formats.NativeAd;
 import com.google.gson.Gson;
 
 import java.util.Calendar;

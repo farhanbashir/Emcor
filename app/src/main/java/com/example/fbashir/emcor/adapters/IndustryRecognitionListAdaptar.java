@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.MyUtils;
 import com.example.fbashir.emcor.models.businessServiceDetails.IndustryRecognition;
-import com.example.fbashir.emcor.models.businessServiceDetails.Team;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,13 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.MyUtils;
 import com.example.fbashir.emcor.models.businessServiceDetails.CorporateOffice;
-import com.example.fbashir.emcor.models.businessServiceDetails.IndustryRecognition;
 
 import java.util.ArrayList;
 import java.util.List;

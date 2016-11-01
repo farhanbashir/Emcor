@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.MyUtils;
-import com.example.fbashir.emcor.models.companyDetails.Market;
 import com.example.fbashir.emcor.models.companyDetails.Staff;
 
 import java.util.ArrayList;

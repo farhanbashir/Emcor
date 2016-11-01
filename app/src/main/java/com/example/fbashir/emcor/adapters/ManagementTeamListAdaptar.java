@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.fbashir.emcor.R;
 import com.example.fbashir.emcor.helpers.MyUtils;
-import com.example.fbashir.emcor.models.WorldPopulation;
 import com.example.fbashir.emcor.models.businessServiceDetails.Team;
 import com.squareup.picasso.Picasso;
 
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import static com.example.fbashir.emcor.R.id.imageView;
 
 /**
  * Created by fbashir on 7/25/2016.
